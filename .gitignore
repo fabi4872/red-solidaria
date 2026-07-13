@@ -39,3 +39,4 @@ next-env.d.ts
 
 # Prisma
 # (el schema sí se versiona; los archivos generados no)
+/src/generated

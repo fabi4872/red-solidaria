@@ -133,7 +133,8 @@ Si cualquier paso falla, se deshace todo. Nunca dejar un animal a medio traspasa
 - **Componentes reutilizables.** Una librería de componentes visuales base (botones, tarjetas, formularios, inputs) que se reusa en toda la app. No repetir markup.
 - **Mensajes al usuario centralizados.** Todos los textos que ve el usuario viven en un único lugar (ej: un módulo de strings/mensajes). Nunca hardcodear textos sueltos por el código. Esto permite corregir tono, traducir o cambiar mensajes desde un solo punto.
 - **Validación de estados en un solo lugar.** La lógica de transiciones válidas del animal no se duplica.
-- **Nombres claros y en un idioma consistente.** Decidir español o inglés para el código y no mezclar dentro de un mismo dominio.
+- **Nombres claros y consistentes.** Nombres descriptivos, sin abreviaturas crípticas.
+- **Idioma: código en inglés, textos al usuario en español.** Los nombres de tablas, campos, funciones y variables van en **inglés**. Todos los textos que ve el usuario van en **español** (centralizados, ver el punto anterior sobre mensajes). No mezclar idiomas dentro del código.
 
 ---
 
