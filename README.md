@@ -8,12 +8,23 @@ que encuentra hogar definitivo. Todo el historial de esa cadena queda registrado
 Las decisiones de arquitectura, el modelo de datos y las convenciones del
 proyecto viven en [`CLAUDE.md`](./CLAUDE.md). **Leelo antes de tocar el código.**
 
+## Documentación
+
+`CLAUDE.md` es la fuente de verdad; ahí está el orden de prioridad completo.
+
+| Documento | Qué contiene |
+| --- | --- |
+| [`docs/estado-actual.md`](./docs/estado-actual.md) | Qué existe **realmente** hoy, y qué no. Empezá por acá. |
+| [`docs/modelo-de-dominio.md`](./docs/modelo-de-dominio.md) | El dominio conceptual: animal, tránsito, traspaso, historial. |
+| [`docs/seguridad-identidad-permisos.md`](./docs/seguridad-identidad-permisos.md) | Decisiones **aprobadas** de identidad y principios de permisos, más los aspectos todavía pendientes claramente identificados (la matriz de permisos sigue siendo propuesta). |
+| [`docs/decisiones/`](./docs/decisiones/README.md) | ADR: el porqué de las decisiones arquitectónicas. |
+
 ## Stack
 
 - **Next.js 16** (App Router, React 19, TypeScript) — web responsive, mobile-first.
 - **Tailwind CSS 4** para los estilos.
 - **PostgreSQL** vía **Prisma 7** (driver adapter `pg`, sin engine binario).
-- **Supabase** — PostgreSQL gestionado + storage de fotos.
+- **Supabase** — PostgreSQL gestionado + storage de fotos + **Auth con magic link** ([ADR 0004](./docs/decisiones/0004-identidad-con-supabase-auth.md), decidido, todavía sin implementar).
 
 ## Puesta en marcha
 
@@ -49,6 +60,7 @@ vas a necesitar cuando se conecte la base de datos y el storage.
 ## Estructura
 
 ```
+docs/                  # Estado real, dominio, identidad y ADR (ver arriba)
 prisma/
   schema.prisma        # Esquema de la base (todavía sin modelos)
 prisma.config.ts       # Config del CLI de Prisma (usa DIRECT_URL para migraciones)
@@ -65,3 +77,5 @@ src/
 ## Estado
 
 En desarrollo — esqueleto del MVP. Sin modelo de datos ni pantallas todavía.
+
+Detalle completo en [`docs/estado-actual.md`](./docs/estado-actual.md).
